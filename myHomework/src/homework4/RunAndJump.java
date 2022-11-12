@@ -1,6 +1,7 @@
 package homework4;
 
 public interface RunAndJump {
-    void run(Obstacle obstacle);
-    void jump(Obstacle obstacle);
+    int run(Obstacle obstacle);
+
+    int jump(Obstacle obstacle);
 }

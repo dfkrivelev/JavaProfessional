@@ -1,6 +1,6 @@
 package homework4;
 
-public class Human implements RunAndJump{
+public class Human implements RunAndJump {
     protected int runLimit;
     protected int jumpLimit;
 
@@ -10,24 +10,30 @@ public class Human implements RunAndJump{
     }
 
     @Override
-    public void run(Obstacle obstacle) {
-        if(obstacle instanceof Track){
-            if(this.runLimit >= obstacle.sizeOfObstacle){
+    public int run(Obstacle obstacle) {
+        int x = 0;
+        if (obstacle instanceof Track) {
+            if (this.runLimit >= obstacle.sizeOfObstacle) {
                 System.out.println("Человек успешно пробежал");
-            }else{
+            } else {
                 System.out.println("Человек не смог пробежать");
+                x = 1;
             }
         }
+        return x;
     }
 
     @Override
-    public void jump(Obstacle obstacle) {
-        if(obstacle instanceof Wall){
-            if(this.jumpLimit >= obstacle.sizeOfObstacle){
+    public int jump(Obstacle obstacle) {
+        int x = 0;
+        if (obstacle instanceof Wall) {
+            if (this.jumpLimit >= obstacle.sizeOfObstacle) {
                 System.out.println("Человек успешно перепрыгнул");
-            }else{
+            } else {
                 System.out.println("Человек не смог перепрыгнуть");
+                x = -1;
             }
         }
+        return x;
     }
 }
