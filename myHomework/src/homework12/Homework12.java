@@ -5,6 +5,7 @@ package homework12;
  *
  * @author Dzmitry Kryvialeu
  * @version 08.12 - 11.12
+ * modification: 13.12
  */
 
 public class Homework12 {

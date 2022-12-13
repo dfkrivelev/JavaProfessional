@@ -76,14 +76,26 @@ public class Database {
     }
 
     public void sort() {
-        Map<Integer, Employee> sortMap = new TreeMap<>();
-        for (Employee employee : employeeList) {
-            sortMap.put(employee.getSalary(), employee);
+        String sortName = DataUtil.getString("sort: n[ame], p[osition], s[alary], a[ge]");
+        Comparator<Employee> comparator = null;
+        switch (sortName.toLowerCase().charAt(0)) {
+            case 'n':
+                comparator = new ComparatorName();
+                break;
+            case 'p':
+                comparator = new ComparatorPosition();
+                break;
+            case 's':
+                comparator = new ComparatorSalary();
+                break;
+            case 'a':
+                comparator = new ComparatorAge();
+                break;
+            default:
+                return;
         }
-        List<Employee> sortList = new ArrayList<>();
-        for (Integer key : sortMap.keySet()) {
-            sortList.add(sortMap.get(key));
-        }
+        List<Employee> sortList = new ArrayList<>(employeeList);
+        sortList.sort(comparator);
         DataUtil.print(sortList);
     }
 }
