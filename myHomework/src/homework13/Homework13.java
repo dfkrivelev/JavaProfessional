@@ -9,7 +9,7 @@ package homework13;
 
 import java.util.*;
 
-public class Lesson13 {
+public class Homework13 {
     public static void main(String[] args) {
         List<String> stringList = new ArrayList<>();
         stringList.addAll(Arrays.asList("hello", "welcom", "java", "bye", "day"));
