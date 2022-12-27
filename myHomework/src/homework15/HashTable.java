@@ -25,19 +25,17 @@ public class HashTable<K, V> {
         if (table[idx] == null) {
             table[idx] = entry;
         } else {
+            Entry<K, V> predPointer;
             Entry<K, V> pointer = table[idx];
-            while (pointer.next != null) {
+            do {
                 if (pointer.key.equals(key)) {
                     pointer.value = value;
                     return;
                 }
+                predPointer = pointer;
                 pointer = pointer.next;
-            }
-            if (pointer.key.equals(key)) {
-                pointer.value = value;
-                return;
-            }
-            pointer.next = entry;
+            } while (pointer != null);
+            predPointer.next = entry;
         }
         size++;
     }
@@ -64,12 +62,22 @@ public class HashTable<K, V> {
         if (table[idx] == null) {
             return null;
         }
+        Entry<K, V> predPointer = null;
         Entry<K, V> pointer = table[idx];
-        if (pointer.key.equals(key)) {
-            table[idx] = null;
-            return pointer.value;
-        }
-        size--;
+        do {
+            if (pointer.key.equals(key)) {
+                V value = pointer.value;
+                if (predPointer == null) {
+                    table[idx] = pointer.next;
+                } else {
+                    predPointer.next = pointer.next;
+                }
+                size--;
+                return value;
+            }
+            predPointer = pointer;
+            pointer = pointer.next;
+        } while (pointer != null);
         return null;
     }
 

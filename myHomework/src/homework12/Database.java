@@ -83,13 +83,13 @@ public class Database {
                 comparator = new ComparatorName();
                 break;
             case 'p':
-                comparator = new ComparatorPosition();
+                comparator = (o1, o2) -> o1.getPosition().toString().compareTo(o2.getPosition().toString());
                 break;
             case 's':
-                comparator = new ComparatorSalary();
+                comparator = (o1, o2) -> o1.getSalary() - o2.getSalary();
                 break;
             case 'a':
-                comparator = new ComparatorAge();
+                comparator = (o1, o2) -> o1.getAge() - o2.getAge();
                 break;
             default:
                 return;
