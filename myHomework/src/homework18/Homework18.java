@@ -29,8 +29,13 @@ public class Homework18 {
     }
 
     public static int matrix(String[][] str) {
-        if (str.length != str[0].length || str.length != 4) {
+        if (str.length != 4) {
             throw new MyArraySizeException();
+        }
+        for(String[] strings : str){
+            if(strings.length != 4){
+                throw new MyArraySizeException();
+            }
         }
 
         int sum = 0;
