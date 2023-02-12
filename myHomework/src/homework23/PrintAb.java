@@ -13,7 +13,7 @@ public class PrintAb {
                     }
                     System.out.print('A');
                     currentChar = 'B';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -30,7 +30,7 @@ public class PrintAb {
                     }
                     System.out.print('B');
                     currentChar = 'C';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -47,7 +47,7 @@ public class PrintAb {
                     }
                     System.out.print('C');
                     currentChar = 'A';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
