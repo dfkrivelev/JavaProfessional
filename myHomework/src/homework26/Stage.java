@@ -1,7 +1,7 @@
 package homework26;
 
 public abstract class Stage {
-    protected int length;
+    protected float length;
     protected String description;
 
     public String getDescription() {
