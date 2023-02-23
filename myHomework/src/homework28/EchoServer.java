@@ -1,4 +1,4 @@
-package homework27;
+package homework28;
 
 /**
  * Java Prof. Homework #27
@@ -27,7 +27,7 @@ public class EchoServer {
                 System.out.println("client connected...");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter writer = new PrintWriter(socket.getOutputStream());
-                String message = null;
+                String message;
                 do {
                     message = reader.readLine();
                     System.out.println("Client say: " + message);
