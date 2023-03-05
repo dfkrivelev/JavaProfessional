@@ -1,4 +1,4 @@
-package Lesson31;
+package homework31;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

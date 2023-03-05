@@ -1,4 +1,4 @@
-package Lesson31;
+package homework31;
 
 /**
  * Java Prof. Homework #31
